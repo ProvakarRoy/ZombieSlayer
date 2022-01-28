@@ -23,6 +23,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Camera playerCamera;
 
+    [SerializeField]
+    private GameObject Gun;
+    [SerializeField]
+    private GameObject bullet;
+    [SerializeField]
+    private GameObject bulletParent;
+
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
@@ -112,5 +119,9 @@ public class PlayerController : MonoBehaviour
     private void DoAttack(InputAction.CallbackContext obj)
     {
         Debug.Log("Attack");
+        GameObject bulletInstans = Instantiate(bullet);
+        bulletInstans.transform.position = Gun.transform.position;
+        bulletInstans.transform.rotation = this.transform.rotation;
+        bulletInstans.transform.parent = bulletParent.transform;
     }
 }
