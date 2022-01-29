@@ -9,7 +9,7 @@ public class PlayerControllerDublicate : MonoBehaviour
     //input fields
     private ThirdPersonAction playerActionsAsset;
     private InputAction move;
-    //private Animator animator;
+    private Animator animator;
 
     //movement fields
     private Rigidbody rb;
@@ -19,11 +19,6 @@ public class PlayerControllerDublicate : MonoBehaviour
     private float jumpForce = 5f;
     [SerializeField]
     private float maxSpeed = 5f;
-    [SerializeField]
-    private float acceleration = 0.1f;
-    [SerializeField]
-    private float deceleration = 0.5f;
-    //int VelocityHash;
     private Vector3 forceDirection = Vector3.zero;
 
     [SerializeField]
@@ -44,7 +39,7 @@ public class PlayerControllerDublicate : MonoBehaviour
 
     private void Start()
     {
-        //animator = this.GetComponent<Animator>();
+        animator = this.GetComponent<Animator>();
         //VelocityHash = Animator.StringToHash("Velocity");
     }
 
@@ -69,6 +64,7 @@ public class PlayerControllerDublicate : MonoBehaviour
     {
         if (move.ReadValue<Vector2>() != new Vector2(0f, 0f)) 
         {
+            maxSpeed += 10;
             //animator.SetFloat(VelocityHash, rb.velocity.magnitude / maxSpeed);
         }
     }
@@ -80,8 +76,16 @@ public class PlayerControllerDublicate : MonoBehaviour
 
         rb.AddForce(forceDirection, ForceMode.Impulse);
         forceDirection = Vector3.zero;
-        
 
+        if(move.ReadValue<Vector2>() == Vector2.zero)
+        {
+            rb.velocity = Vector3.zero;
+        }
+        else
+        {
+
+        }
+        animator.SetFloat("Velocity", rb.velocity.magnitude / maxSpeed);
         if (rb.velocity.y < 0f)
             rb.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
 

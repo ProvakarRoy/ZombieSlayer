@@ -18,6 +18,6 @@ public class PlayerAnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Velocity", rb.velocity.magnitude/maxSpeed);
+        animator.SetFloat("Velocity", rb.velocity.magnitude / maxSpeed);
     }
 }
