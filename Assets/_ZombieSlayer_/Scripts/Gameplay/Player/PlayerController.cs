@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     //input fields
     private ThirdPersonAction playerActionsAsset;
     private InputAction move;
+    private Animator animator;
 
     //movement fields
     private Rigidbody rb;
@@ -16,8 +17,8 @@ public class PlayerController : MonoBehaviour
     private float movementForce = 1f;
     [SerializeField]
     private float jumpForce = 5f;
-    [SerializeField]
-    private float maxSpeed = 5f;
+    private bool isRunning = false;
+    private float speed;
     private Vector3 forceDirection = Vector3.zero;
 
     [SerializeField]
@@ -36,9 +37,15 @@ public class PlayerController : MonoBehaviour
         playerActionsAsset = new ThirdPersonAction();
     }
 
+    private void Start()
+    {
+        animator = this.GetComponent<Animator>();
+    }
+
     private void OnEnable()
     {
         playerActionsAsset.Player.Jump.started += DoJump;
+        playerActionsAsset.Player.Run.started += DoRun;
         playerActionsAsset.Player.Attack.started += DoAttack;
         move = playerActionsAsset.Player.Movement;
         playerActionsAsset.Player.Enable();
@@ -47,26 +54,56 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         playerActionsAsset.Player.Jump.started -= DoJump;
+        playerActionsAsset.Player.Run.started -= DoRun;
         playerActionsAsset.Player.Attack.started -= DoAttack;
         playerActionsAsset.Player.Disable();
+    }
+
+    private void DoRun(InputAction.CallbackContext obj)
+    {
+        if (move.ReadValue<Vector2>() != new Vector2(0f, 0f)) 
+        {
+            //RunScript
+        }
     }
 
     private void FixedUpdate()
     {
         forceDirection += move.ReadValue<Vector2>().x * GetCameraRight(playerCamera) * movementForce;
         forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera) * movementForce;
-
+        Vector2 forceDir = forceDirection.normalized;
+        
+        if (move.ReadValue<Vector2>() == Vector2.zero)
+        {
+            speed = 0 * forceDir.magnitude;
+            rb.velocity = Vector3.zero;
+        }
+        else
+        {
+            if(playerActionsAsset.Player.Run.IsPressed())
+            {
+                isRunning = true;
+                movementForce = 10f;
+                speed = 1 * forceDir.magnitude;
+            }
+            else
+            {
+                isRunning = false;
+                movementForce = 1f;
+                speed = 0.5f * forceDir.magnitude;
+            }
+        }
         rb.AddForce(forceDirection, ForceMode.Impulse);
         forceDirection = Vector3.zero;
-
+        Debug.Log(speed);
+        animator.SetFloat("Velocity", speed);
         if (rb.velocity.y < 0f)
             rb.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
 
         Vector3 horizontalVelocity = rb.velocity;
         horizontalVelocity.y = 0;
-        if (horizontalVelocity.sqrMagnitude > maxSpeed * maxSpeed)
-            rb.velocity = horizontalVelocity.normalized * maxSpeed + Vector3.up * rb.velocity.y;
-
+        if (horizontalVelocity.sqrMagnitude > movementForce * movementForce)
+            rb.velocity = horizontalVelocity.normalized + Vector3.up * rb.velocity.y;
         LookAt();
     }
 
