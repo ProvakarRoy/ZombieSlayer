@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -828,7 +828,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203329336}
   m_LocalRotation: {x: 0.000000014901159, y: 0.000000059604638, z: -0.000000014901159, w: 1}
-  m_LocalPosition: {x: -1.5130414, y: 0.71027577, z: 6.260173}
+  m_LocalPosition: {x: -0.674634, y: -1.5321178, z: 26.86379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1447583010}
@@ -2047,7 +2047,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487605813}
   m_LocalRotation: {x: -0.018141463, y: -0, z: -0, w: 0.9998355}
-  m_LocalPosition: {x: -1.5130414, y: 0.71027577, z: 6.260173}
+  m_LocalPosition: {x: -0.674634, y: -1.5321178, z: 26.86379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 61627484}
@@ -5556,7 +5556,7 @@ MonoBehaviour:
   playerSpeed: 2
   rotationSpeed: 10
   jumpHeight: 1
-  gravityValue: -9.81
+  gravityValue: -6.54
   bulletAsset: {fileID: 2533713921093133256, guid: 0bf399d39b3922946add1e17ddf69e0e, type: 3}
   Gun: {fileID: 1366864801}
   bulletParent: {fileID: 32637664}
@@ -6145,7 +6145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062938253}
   m_LocalRotation: {x: 0.018189505, y: -0, z: 0.000000014901161, w: 0.99983466}
-  m_LocalPosition: {x: -1.5130414, y: 0.71027577, z: 6.260173}
+  m_LocalPosition: {x: -0.674633, y: -1.5321178, z: 26.86379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 332338356}
