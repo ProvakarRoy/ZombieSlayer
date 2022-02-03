@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_ZombieSlayer_/Scenes/_ProvakarScene.unity
     guid: 241fa1edf82f1984ab9c9f198202f790
+  - enabled: 1
+    path: Assets/Room.unity
+    guid: 7f1a681635339084096794af614ecc99
   m_configObjects: {}
