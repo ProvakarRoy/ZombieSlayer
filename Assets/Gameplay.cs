@@ -7,10 +7,13 @@ public class Gameplay : MonoBehaviour
 {
     public Text playerName;
     // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         playerName.text = PhotonManager.Instance.name;
-
+    }
+    void Update()
+    {
         PhotonManager.Instance.DisplayNames();
     }
 
