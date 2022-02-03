@@ -88,20 +88,23 @@ public class PlayerLocomotion : MonoBehaviour
             return;
 
         Vector3 targetDirection = Vector3.zero;
-        targetDirection = cameraObject.forward * inputManager.verticalInput;
-        targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
-        targetDirection.Normalize();
-        targetDirection.y = 0;
-        
-        if(targetDirection == Vector3.zero)
+        if (inputManager.verticalInput == 1)
         {
-            targetDirection = this.transform.forward;
+            targetDirection = cameraObject.forward * inputManager.verticalInput;
+            targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
+            targetDirection.Normalize();
+            targetDirection.y = 0;
+
+            if (targetDirection == Vector3.zero)
+            {
+                targetDirection = this.transform.forward;
+            }
+
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            Quaternion playerRotation = Quaternion.Slerp(this.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            transform.rotation = playerRotation;
         }
-
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        Quaternion playerRotation = Quaternion.Slerp(this.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-        transform.rotation = playerRotation;
     }
 
     private void HandleFallingAndLanding()
