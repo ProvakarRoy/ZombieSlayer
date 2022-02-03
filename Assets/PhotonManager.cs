@@ -13,7 +13,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public Text playerName;
     public GameObject beforeConnection;
     public GameObject afterConnection;
-    public string name;
+    public string myName;
     public static PhotonManager Instance;
     // Start is called before the first frame update
     void Awake()
@@ -33,7 +33,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.NickName = playerName.text;
-        name = PhotonNetwork.NickName;
+        myName = PhotonNetwork.NickName;
     }
 
 
