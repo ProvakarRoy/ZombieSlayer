@@ -10,7 +10,7 @@ public class Gameplay : MonoBehaviour
 
     private void Start()
     {
-        playerName.text = PhotonManager.Instance.name;
+        playerName.text = PhotonManager.Instance.myName;
     }
     void Update()
     {
