@@ -54,7 +54,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleMovement()
     {
-        if (isJumping)
+        if (isJumping || !isGrounded)
             return;
 
         moveDirection = cameraObject.forward * inputManager.verticalInput;
@@ -84,7 +84,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleRotation()
     {
-        if (isJumping)
+        if (isJumping || !isGrounded)
             return;
 
         Vector3 targetDirection = Vector3.zero;
