@@ -58,6 +58,12 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     }
 
+    public void JoinRom()
+    {
+        PhotonNetwork.JoinRoom(roomName.text);
+        SceneManager.LoadScene("Room");
+    }
+
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
@@ -79,5 +85,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             Debug.Log(i.Value);
         }
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        base.OnJoinRoomFailed(returnCode, message);
+        Debug.Log("Joining Failed");
     }
 }
