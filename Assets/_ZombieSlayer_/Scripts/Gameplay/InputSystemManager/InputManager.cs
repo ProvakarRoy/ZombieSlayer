@@ -14,7 +14,7 @@ public class InputManager : MonoBehaviour
     public float moveAmount;
     public float verticalInput;
     public float horizontalInput;
-    public bool b_Input;
+    public bool run_Input;
     public bool jump_Input;
 
     private void Awake()
@@ -30,8 +30,8 @@ public class InputManager : MonoBehaviour
             playerControls.Player.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.Player.Movement.canceled += i => movementInput = Vector2.zero;
             playerControls.Player.Look.performed += i => cameraInput = i.ReadValue<Vector2>();
-            playerControls.Player.Run.performed += i => b_Input = true;
-            playerControls.Player.Run.canceled += i => b_Input = false;
+            playerControls.Player.Run.performed += i => run_Input = true;
+            playerControls.Player.Run.canceled += i => run_Input = false;
             playerControls.Player.Jump.performed += i => jump_Input = true;
         }
 
@@ -60,7 +60,7 @@ public class InputManager : MonoBehaviour
     }
     private void HandleSprinting()
     {
-        if (b_Input && moveAmount > 0.5f)
+        if (run_Input && moveAmount > 0.5f)
         {
             playerLocomotion.isSprinting = true;
         }
