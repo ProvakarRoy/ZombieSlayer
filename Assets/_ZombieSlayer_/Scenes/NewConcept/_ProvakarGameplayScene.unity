@@ -248,7 +248,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
-    m_InvertInput: 1
+    m_InvertInput: 0
     m_MinValue: 0
     m_MaxValue: 1
     m_Wrap: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_BindingMode: 4
   m_SplineCurvature: 0.2
   m_Orbits:
-  - m_Height: 3
+  - m_Height: 4
     m_Radius: 3
   - m_Height: 3
     m_Radius: 3
@@ -428,8 +428,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225608730}
-  m_LocalRotation: {x: 0.36581522, y: -0.00000001972916, z: 0.00000000774914, w: 0.9306875}
-  m_LocalPosition: {x: -0.000000066655666, y: -6.6650147, z: -15.997269}
+  m_LocalRotation: {x: 0.36581522, y: 0.000000019722284, z: -0.000000007751331, w: 0.9306875}
+  m_LocalPosition: {x: 0.000000066652866, y: -6.6650147, z: -15.997269}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2095649759}
@@ -520,7 +520,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501699472}
-  m_LocalRotation: {x: -0, y: -0.000000031039534, z: 0.000000028858366, w: 1}
+  m_LocalRotation: {x: -0, y: 0.000000031045367, z: -0.000000028856295, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -687,8 +687,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769230734}
-  m_LocalRotation: {x: 0.018189492, y: -0.000000021111502, z: 0.000000020356042, w: 0.9998346}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.018189492, y: 0.000000021116128, z: -0.000000020352877, w: 0.9998346}
+  m_LocalPosition: {x: -7.1054274e-15, y: 2.0502717e-22, z: 2.2064586e-22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1746998270}
@@ -761,7 +761,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963289726}
-  m_LocalRotation: {x: -0.018141508, y: -0.00000002844531, z: 0.00000002550004, w: 0.99983543}
+  m_LocalRotation: {x: -0.018141478, y: 0.00000002845019, z: -0.000000025497048, w: 0.99983543}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1265,6 +1265,14 @@ PrefabInstance:
     - target: {fileID: 5984584733172478415, guid: 174553d24d1788b4da2a4aff4f37e0be, type: 3}
       propertyPath: jumpHeight
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984584733172478415, guid: 174553d24d1788b4da2a4aff4f37e0be, type: 3}
+      propertyPath: runningSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984584733172478415, guid: 174553d24d1788b4da2a4aff4f37e0be, type: 3}
+      propertyPath: sprintingSpeed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5984584733172478415, guid: 174553d24d1788b4da2a4aff4f37e0be, type: 3}
       propertyPath: fallingVelocity

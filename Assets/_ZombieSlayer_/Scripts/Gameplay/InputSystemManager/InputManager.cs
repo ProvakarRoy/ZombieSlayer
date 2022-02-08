@@ -8,9 +8,6 @@ public class InputManager : MonoBehaviour
     PlayerLocomotion playerLocomotion;
     PlayerAnimatorManager animatorManager;
     public Vector2 movementInput;
-    public Vector2 cameraInput;
-    public float cameraInputX;
-    public float cameraInputY;
     public float moveAmount;
     public float verticalInput;
     public float horizontalInput;
@@ -29,7 +26,6 @@ public class InputManager : MonoBehaviour
             playerControls = new ThirdPersonAction();
             playerControls.Player.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.Player.Movement.canceled += i => movementInput = Vector2.zero;
-            playerControls.Player.Look.performed += i => cameraInput = i.ReadValue<Vector2>();
             playerControls.Player.Run.performed += i => run_Input = true;
             playerControls.Player.Run.canceled += i => run_Input = false;
             playerControls.Player.Jump.performed += i => jump_Input = true;
@@ -53,8 +49,6 @@ public class InputManager : MonoBehaviour
     {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
-        cameraInputY = cameraInput.y;
-        cameraInputX = cameraInput.x;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animatorManager.UpdateAnimatorValues(0, moveAmount, playerLocomotion.isSprinting);
     }
