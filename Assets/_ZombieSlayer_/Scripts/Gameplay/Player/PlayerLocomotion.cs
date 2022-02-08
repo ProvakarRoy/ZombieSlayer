@@ -46,8 +46,8 @@ public class PlayerLocomotion : MonoBehaviour
     public void HandleAllMovement()
     {
         HandleFallingAndLanding();
-        if (playerManager.isInteracting)
-            return;
+        //if (playerManager.isInteracting)
+        //    return;
         HandleMovement();
         HandleRotation();
     }
@@ -123,7 +123,7 @@ public class PlayerLocomotion : MonoBehaviour
             playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
         }
 
-        if (Physics.SphereCast(rayCastOrigin, 1f, -Vector3.up, out hit, groundLayer))
+        if (Physics.Raycast(rayCastOrigin, -Vector3.up, out hit, groundLayer))
         {
             if(!isGrounded && !playerManager.isInteracting)
             {
@@ -131,7 +131,7 @@ public class PlayerLocomotion : MonoBehaviour
             }
             inAirTimer = 0;
             isGrounded = true;
-        }
+         }
         else
         {
             isGrounded = false;
@@ -140,14 +140,17 @@ public class PlayerLocomotion : MonoBehaviour
 
     public void HandleJump()
     {
+        Debug.Log("jumped");
         if(isGrounded)
         {
             animatorManager.animator.SetBool("IsJumping", true);
             animatorManager.PlayTargetAnimation("Jump", false);
-            float jumpingVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
-            Vector3 playerVelocity = moveDirection;
-            playerVelocity.y = jumpingVelocity;
-            playerRigidbody.velocity = playerVelocity;
+            playerRigidbody.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.VelocityChange);
+
+            //float jumpingVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+            //Vector3 playerVelocity = moveDirection;
+            //playerVelocity.y = jumpingVelocity;
+            //playerRigidbody.velocity = playerVelocity;
         }
     }
 

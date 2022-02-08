@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(playerLocomotion.isGrounded);
         inputManager.HandleAllInputs();
     }
 
@@ -29,7 +30,7 @@ public class PlayerManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        cameraManager.HandleAllCameraMovement();
+        //cameraManager.HandleAllCameraMovement();
         isInteracting = animator.GetBool("IsInteraction");
         playerLocomotion.isJumping = animator.GetBool("IsJumping");
         animator.SetBool("IsGrounded", playerLocomotion.isGrounded);
