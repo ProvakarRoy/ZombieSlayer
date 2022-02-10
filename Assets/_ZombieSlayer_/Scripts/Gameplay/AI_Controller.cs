@@ -11,10 +11,11 @@ public class AI_Controller : MonoBehaviour
     private bool isAware=false;
     [SerializeField]private float FieldOfView = 120f;
     [SerializeField]private float ViewDistance = 10f;
-
+    private Animator animator;
     private void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
+        animator = this.GetComponent<Animator>();
     }
     void Update()
     {
@@ -30,6 +31,7 @@ public class AI_Controller : MonoBehaviour
     }
     public void PlayerSearching()
     {
+        animator.SetBool("ZombieIdle", true);
         if (Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(Player.transform.position)) < FieldOfView / 2)
         {
             if (Vector3.Distance(Player.transform.position, this.transform.position) < ViewDistance)
@@ -42,5 +44,10 @@ public class AI_Controller : MonoBehaviour
     public void OnAware()
     {
         isAware = true;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        
     }
 }

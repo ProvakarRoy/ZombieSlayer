@@ -8,12 +8,14 @@ public class PlayerAnimatorManager : MonoBehaviour
     private InputManager inputManager;
     int horizontal;
     int vertical;
+    GameObject h;
     private void Awake()
     {
         animator = this.GetComponent<Animator>();
         horizontal = Animator.StringToHash("Horizontal");
         vertical = Animator.StringToHash("Vertical");
         inputManager = this.GetComponent<InputManager>();
+        Instantiate(h,this.transform);
     }
 
     public void PlayTargetAnimation(string TargetAnimation, bool isInteracting)
