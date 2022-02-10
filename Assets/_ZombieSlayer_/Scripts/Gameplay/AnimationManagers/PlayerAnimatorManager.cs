@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAnimatorManager : MonoBehaviour
 {
     public Animator animator;
+    private InputManager inputManager;
     int horizontal;
     int vertical;
     private void Awake()
@@ -12,6 +13,7 @@ public class PlayerAnimatorManager : MonoBehaviour
         animator = this.GetComponent<Animator>();
         horizontal = Animator.StringToHash("Horizontal");
         vertical = Animator.StringToHash("Vertical");
+        inputManager = this.GetComponent<InputManager>();
     }
 
     public void PlayTargetAnimation(string TargetAnimation, bool isInteracting)
@@ -74,8 +76,31 @@ public class PlayerAnimatorManager : MonoBehaviour
 
         if(isSprinting)
         {
-            snappedHorizontal = HorizontalMovement;
-            snappedVertical = 2;
+            if (inputManager.horizontalInput == 1)
+            {
+                snappedHorizontal = 2;
+                snappedVertical = VerticalMovement;
+            }
+            else if (inputManager.horizontalInput == -1)
+            {
+                snappedHorizontal = -2;
+                snappedVertical = VerticalMovement;
+            }
+            else if (inputManager.verticalInput == 1)
+            {
+                snappedHorizontal = HorizontalMovement;
+                snappedVertical = 2;
+            }
+            else if (inputManager.verticalInput == -1)
+            {
+                snappedHorizontal = HorizontalMovement;
+                snappedVertical = -2;
+            }
+            else
+            {
+                snappedHorizontal = HorizontalMovement;
+                snappedVertical = VerticalMovement;
+            }
         }
 
         animator.SetFloat(horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
