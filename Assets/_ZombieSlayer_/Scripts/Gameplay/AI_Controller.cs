@@ -8,7 +8,7 @@ public class AI_Controller : MonoBehaviour
 {
     public PlayerLocomotion Player;
     private NavMeshAgent agent;
-    private bool isAware;
+    private bool isAware=false;
     [SerializeField]private float FieldOfView = 120f;
     [SerializeField]private float ViewDistance = 10f;
 
