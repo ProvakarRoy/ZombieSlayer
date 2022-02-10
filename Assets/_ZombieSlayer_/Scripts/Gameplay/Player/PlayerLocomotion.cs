@@ -89,6 +89,10 @@ public class PlayerLocomotion : MonoBehaviour
             return;
 
         Vector3 targetDirection = Vector3.zero;
+        // inputManager.verticalInput == 1 is Key W
+        // inputManager.verticalInput == -1 is Key S
+        // inputManager.horizontalInput == 1 is Key D
+        // inputManager.horizontalInput == -1 is Key A
         if (inputManager.verticalInput == 1)
         {
             targetDirection = cameraObject.forward * inputManager.verticalInput;
