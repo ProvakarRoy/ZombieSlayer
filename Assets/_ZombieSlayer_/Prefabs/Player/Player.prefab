@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3299809957424274007}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3044994998351178432}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 3299809957544207104}
   - component: {fileID: 3299809957544207106}
   m_Layer: 0
-  m_Name: Red
+  m_Name: SoldierContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3299809957544207134}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2b45da30e4409aa4b95af04ef5459f14, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -145,7 +145,7 @@ MonoBehaviour:
   _rotationSpeedMultiplier: 1000
   _pitchSpeedMultiplier: 1000
   _runMultiplier: 2.5
-  _jumpMultiplier: 200
+  _jumpMultiplier: 150
   _playerIsGrounded: 1
   _groundCheckRadiusMultiplier: 0.9
   _groundCheckDistance: 0.05
@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3eb79ef37126314d862f743bf2b669e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3eb79ef37126314d862f743bf2b669e, type: 3}
       propertyPath: m_LocalPosition.z

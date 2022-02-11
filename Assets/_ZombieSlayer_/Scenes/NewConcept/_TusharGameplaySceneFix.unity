@@ -529,10 +529,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3044994998351178432, guid: e032adab639407d478389c46d0898701, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.1
-      objectReference: {fileID: 0}
     - target: {fileID: 3299809956320542894, guid: e032adab639407d478389c46d0898701, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -581,26 +577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3299809957424274006, guid: e032adab639407d478389c46d0898701, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3299809957544207104, guid: e032adab639407d478389c46d0898701, type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3299809957544207104, guid: e032adab639407d478389c46d0898701, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 2b45da30e4409aa4b95af04ef5459f14, type: 2}
     - target: {fileID: 3299809957544207106, guid: e032adab639407d478389c46d0898701, type: 3}
       propertyPath: _input
       value: 
       objectReference: {fileID: 205351013}
-    - target: {fileID: 3299809957544207106, guid: e032adab639407d478389c46d0898701, type: 3}
-      propertyPath: _jumpMultiplier
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 3299809957544207106, guid: e032adab639407d478389c46d0898701, type: 3}
       propertyPath: _CameraController
       value: 
