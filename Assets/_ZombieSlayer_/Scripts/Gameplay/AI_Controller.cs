@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class AI_Controller : MonoBehaviour
 {
-    public PlayerLocomotion Player;
+    public HumanoidlandController Player;
     private NavMeshAgent agent;
     private bool isAware=false;
     [SerializeField]private float FieldOfView = 120f;
