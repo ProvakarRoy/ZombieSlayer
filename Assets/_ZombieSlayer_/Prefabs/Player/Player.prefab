@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3299809956320542894}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 3299809957544207107}
   - component: {fileID: 3299809957544207104}
   - component: {fileID: 3299809957544207106}
+  - component: {fileID: 651529141}
   m_Layer: 0
   m_Name: SoldierContainer
   m_TagString: Untagged
@@ -141,10 +142,10 @@ MonoBehaviour:
   _input: {fileID: 0}
   _CameraController: {fileID: 0}
   _playerLookInputLerpTime: 0.35
-  _movementMultiplier: 30
+  _movementMultiplier: 20
   _rotationSpeedMultiplier: 1000
   _pitchSpeedMultiplier: 1000
-  _runMultiplier: 2.5
+  _runMultiplier: 2
   _jumpMultiplier: 150
   _playerIsGrounded: 1
   _groundCheckRadiusMultiplier: 0.9
@@ -156,6 +157,20 @@ MonoBehaviour:
   _gravityFallIncrementTime: 0.05
   _playerFallTime: 0
   _gravity: -0
+--- !u!114 &651529141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299809957544207134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0a6291632342c4f8c7efe146906faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 8980690054744502458}
+  _input: {fileID: 0}
 --- !u!1 &3299809958100762798
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,10 +257,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e3eb79ef37126314d862f743bf2b669e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ff6b689cf0aa6cf4dbd8b68feaa2a133, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3eb79ef37126314d862f743bf2b669e, type: 3}
 --- !u!4 &3044994998351178432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e3eb79ef37126314d862f743bf2b669e, type: 3}
+  m_PrefabInstance: {fileID: 3299809956528475435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8980690054744502458 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: e3eb79ef37126314d862f743bf2b669e, type: 3}
   m_PrefabInstance: {fileID: 3299809956528475435}
   m_PrefabAsset: {fileID: 0}
