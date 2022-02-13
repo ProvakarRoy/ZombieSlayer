@@ -52,8 +52,39 @@ public class InputManager : MonoBehaviour
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-        horizontalAnimatedMovement = horizontalInput;
-        verticalAnimatedMovement = verticalInput;
+        if (!playerLocomotion.isSprinting)
+        {
+            if (horizontalInput == 1 && verticalInput == 1)
+            {
+                horizontalAnimatedMovement = 0.5f;
+                verticalAnimatedMovement = 0.5f;
+            }
+            else if (horizontalInput == -1 && verticalInput == 1)
+            {
+                horizontalAnimatedMovement = -0.5f;
+                verticalAnimatedMovement = 0.5f;
+            }
+            else if (horizontalInput == 1 && verticalInput == -1)
+            {
+                horizontalAnimatedMovement = 0.5f;
+                verticalAnimatedMovement = -0.5f;
+            }
+            else if (horizontalInput == -1 && verticalInput == -1)
+            {
+                horizontalAnimatedMovement = -0.5f;
+                verticalAnimatedMovement = -0.5f;
+            }
+            else if (horizontalInput == 0 && verticalInput == 1 || horizontalInput == 0 && verticalInput == -1)
+            {
+                horizontalAnimatedMovement = 0;
+                verticalAnimatedMovement = verticalInput;
+            }
+            else if (horizontalInput == 1 && verticalInput == 0 || horizontalInput == -1 && verticalInput == 0)
+            {
+                horizontalAnimatedMovement = horizontalInput;
+                verticalAnimatedMovement = 0;
+            }
+        }
         animatorManager.UpdateAnimatorValues(horizontalInput, 0, playerLocomotion.isSprinting);
         animatorManager.UpdateAnimatorValues(horizontalInput, verticalInput, playerLocomotion.isSprinting);
     }

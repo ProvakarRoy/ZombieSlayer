@@ -78,30 +78,45 @@ public class PlayerAnimatorManager : MonoBehaviour
 
         if(isSprinting)
         {
-            if (inputManager.horizontalInput == 1)
+            if (inputManager.horizontalInput == 1 && inputManager.verticalInput == 0)
             {
                 snappedHorizontal = 2;
                 snappedVertical = VerticalMovement;
             }
-            else if (inputManager.horizontalInput == -1)
+            else if (inputManager.horizontalInput == -1 && inputManager.verticalInput == 0)
             {
                 snappedHorizontal = -2;
                 snappedVertical = VerticalMovement;
             }
-            else if (inputManager.verticalInput == 1)
+            else if (inputManager.verticalInput == 1 && inputManager.horizontalInput == 0)
             {
                 snappedHorizontal = HorizontalMovement;
                 snappedVertical = 2;
             }
-            else if (inputManager.verticalInput == -1)
+            else if (inputManager.verticalInput == -1 && inputManager.horizontalInput == 0)
             {
                 snappedHorizontal = HorizontalMovement;
                 snappedVertical = -2;
             }
-            else
+            else if(inputManager.verticalInput == 1 && inputManager.horizontalInput == 1)
             {
-                snappedHorizontal = HorizontalMovement;
-                snappedVertical = VerticalMovement;
+                snappedHorizontal = 1.5f;
+                snappedVertical = 1.5f;
+            }
+            else if (inputManager.verticalInput == 1 && inputManager.horizontalInput == -1)
+            {
+                snappedHorizontal = -1.5f;
+                snappedVertical = 1.5f;
+            }
+            else if (inputManager.verticalInput == -1 && inputManager.horizontalInput == 1)
+            {
+                snappedHorizontal = 1.5f;
+                snappedVertical = -1.5f;
+            }
+            else if (inputManager.verticalInput == -1 && inputManager.horizontalInput == -1)
+            {
+                snappedHorizontal = -1.5f;
+                snappedVertical = -1.5f;
             }
         }
 
