@@ -48,7 +48,7 @@ public class AI_Controller : MonoBehaviour
             if (Vector3.Distance(Player.transform.position, this.transform.position) < ViewDistance)
             {
                 RaycastHit hit;
-                if(Physics.Linecast(this.transform.position,Player.transform.position,out hit, -1))
+                if (Physics.Linecast(this.transform.position, Player.transform.position, out hit, -1))
                 {
                     if (hit.transform.tag == "Player")
                     {
@@ -64,16 +64,16 @@ public class AI_Controller : MonoBehaviour
         isAware = true;
     }
 
-    public void Onfire()
-    {
-        AI_Controller callingOnAware = new AI_Controller();
-        audioSource.PlayOneShot(ShootSound);
-        Collider[] Zombies = Physics.OverlapSphere(transform.position, SoundIntensity, ZombieLayers);
-        for(int i = 0; i < Zombies.Length; i++)
-        {
-            Zombies[i].GetComponent<AI_Controller>().OnAware(); 
-        }
-    }
+    //public void Onfire()
+    //{
+    //    AI_Controller callingOnAware = new AI_Controller();
+    //    audioSource.PlayOneShot(ShootSound);
+    //    Collider[] Zombies = Physics.OverlapSphere(transform.position, SoundIntensity, ZombieLayers);
+    //    for(int i = 0; i < Zombies.Length; i++)
+    //    {
+    //        Zombies[i].GetComponent<AI_Controller>().OnAware(); 
+    //    }
+    //}
 
     public void Wander()
     {
