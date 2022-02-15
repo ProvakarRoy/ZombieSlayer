@@ -38,6 +38,10 @@ public class HumanoidlandController : MonoBehaviour
     [SerializeField] float _playerFallTime = 0.0f;
     [SerializeField] float _gravity = 0.0f;
 
+    [Header("Camera")]
+    [SerializeField] private float minMoveClamp = -89.9f;
+    [SerializeField] private float maxMoveClamp = 89.9f;
+
     private void Awake()
     {
         _rigidbody = this.GetComponent<Rigidbody>();
@@ -80,7 +84,7 @@ public class HumanoidlandController : MonoBehaviour
     {
         Vector3 rotationValues = CameraFollow.rotation.eulerAngles;
         cameraPitch += _playerLookInput.y * _pitchSpeedMultiplier;
-        cameraPitch = Mathf.Clamp(cameraPitch, -89.9f, 89.9f);
+        cameraPitch = Mathf.Clamp(cameraPitch, minMoveClamp, maxMoveClamp);
 
         CameraFollow.rotation = Quaternion.Euler(cameraPitch, rotationValues.y, rotationValues.z);
     }

@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
         ChangeCamera(); // First Time Through, let's Set the Default camera
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if(!(_input.ZoomCameraInput == 0.0f))
         {
